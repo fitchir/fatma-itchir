@@ -1,25 +1,27 @@
 import PropTypes from "prop-types";
+import colors from "./Type"
 
 function PokemonCard ({ pokemon })  {
 
   return (
-    <div>
+    <figure classeName= "card" style={{backgroundColor : colors[pokemon.types]}}>
       {pokemon.imgSrc == undefined  ? 
       <p> ???</p> 
       :
       (
-        <figure>
+        <>
         <img src={pokemon.imgSrc} alt={pokemon.name} />
-        </figure> ) 
+        </> ) 
       } 
-    </div>
+      </figure>
+  
     );
 }
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
   })
 };
 export default PokemonCard;
